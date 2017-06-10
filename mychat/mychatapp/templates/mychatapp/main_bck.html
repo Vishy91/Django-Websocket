@@ -1,0 +1,18 @@
+{% extends 'mychatapp/base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+    {% for m in messages %}
+        <div class="post">
+            <div class="date">
+                {{ m.created_date }}
+            </div>
+            <h1>{{ m.author }}</h1>
+            <p>{{ m.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block afterbody %}
+  <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
+  <script type="text/javascript" src='{% static "socket.js" %}'></script>
+{% endblock afterbody %}

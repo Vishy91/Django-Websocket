@@ -1,0 +1,15 @@
+{% extends 'mychatapp/base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+    <h1>New post</h1>
+    <form method="POST" class="message-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+{% block afterbody %}
+  <script type="text/javascript" src='{% static "jquery-1.12.1.min.js" %}'></script>
+  <script type="text/javascript" src='{% static "reconnecting-websocket.min.js" %}'></script>
+  <script type="text/javascript" src='{% static "socket.js" %}'></script>
+{% endblock afterbody %}
